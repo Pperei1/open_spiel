@@ -545,7 +545,7 @@ def compute_corrolated_equilibrium(game):
   Returns:
     A 2-tuple containing:
       - p_sol (array-like): probability distribution over joint actions
-      - p_sol_value (array-like): value of each player
+      - p_sol_value (array-like): the value of each player
   """
 
   # For more detail, please refer to Sec 4.1 of Shoham & Leyton-Brown, 2009:
