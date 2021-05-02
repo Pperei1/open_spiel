@@ -535,5 +535,31 @@ def iterated_dominance(game_or_payoffs, mode, tol=1e-7):
   else:
     return payoffs, live_actions
 
+  
+def compute_corrolated_equilibrium(game):
+  """Computes a utility maximizing corrolated_equilibrium of an n-player normal-form game.
+
+  Args:
+    game: a pyspiel TensorGame
+
+  Returns:
+    A 2-tuple containing:
+      - p_sol (array-like): probability distribution over joint actions
+      - p_sol_value (array-like): value of each player
+  """
+
+  # For more detail, please refer to Sec 4.1 of Shoham & Leyton-Brown, 2009:
+  # Multiagent Systems: Algorithmic, Game-Theoretic, and Logical Foundations
+  # http://www.masfoundations.org/mas.pdf
+  #
+  # The LP looks like:
+  #    max V
+  #     st. sigma_a1 \dot col_0 >= V
+  #         sigma_a2 \dot col_1 >= V
+  #              .
+  #              .
+  #         sigma_am \cot col_n >= V
+  #         for all i, sigma_ai >= 0
+  #         sigma \dot 1 = 1
 
 # TODO(author5): add a function for sequential games using sequence-form LPs.
